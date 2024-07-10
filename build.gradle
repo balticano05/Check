@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group = 'ru.clevertec.check'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'ru.clevertec.check.CheckRunner'
+        )
+    }
+}
+
+task run(type : JavaExec){
+    classpath = sourceSets.main.runtimeClasspath;
+    main = 'ru.clevertec.check.CheckRunner'
+}
