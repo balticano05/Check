@@ -16,7 +16,7 @@ public class ServiceDiscountCard {
             String[] foundDiscountCard = null;
 
             for (String[] dataRow : data) {
-                if (dataRow[1].equals(numberDiscountCard)) { // Assuming the number is in the second column
+                if (dataRow[1].equals(numberDiscountCard)) {
                     foundDiscountCard = dataRow;
                     break;
                 }
@@ -28,12 +28,11 @@ public class ServiceDiscountCard {
                 return csvParser.parseRowToDiscountCard(foundDiscountCard);
             } else {
                 System.out.println("DISCOUNT CARD NOT FOUND IN FILE.");
-                // Create a default discount card (e.g., NoneDiscountCard) if not found
+
                 return DiscountCardFactory.build(numberDiscountCard);
             }
         }
 
-        // If the numberDiscountCard is null, create a NoneDiscountCard
         return DiscountCardFactory.build();
     }
 }

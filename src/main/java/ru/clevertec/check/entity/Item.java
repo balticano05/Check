@@ -7,7 +7,6 @@ public class Item {
     private int quantity;
     private boolean isWholesale;
 
-    //constructor
     public Item() {
     }
 
@@ -18,7 +17,7 @@ public class Item {
         this.quantity = quantity;
         this.isWholesale = isWholesale;
     }
-    //getters/setters
+
     public int getId() {
         return id;
     }

@@ -26,7 +26,7 @@ public class ServiceGenerateCheck {
 
                 ParsedInput parsedInput = InputParser.parseInput(testLine);
 
-                System.out.println("ID-Quantity Pairs: " + parsedInput.getIdQuantityPairs()); // List<String>
+                System.out.println("ID-Quantity Pairs: " + parsedInput.getIdQuantityPairs());
                 System.out.println("Discount Card: " + (parsedInput.getDiscountCard() != null ? parsedInput.getDiscountCard() : "None"));
                 System.out.println("Balance Debit Card: " + parsedInput.getBalanceDebitCard());
 
@@ -44,7 +44,7 @@ public class ServiceGenerateCheck {
                     System.out.println();
                     System.out.println("NO ORDER ITEMS FOUND.");
                     System.out.println("BAD REQUEST.");
-                    return;                                           //-------------------------------------
+                    return;
                 }
 
                 DiscountCard discountCard = ServiceDiscountCard.getDiscountCard(parsedInput.getDiscountCard());
@@ -67,7 +67,7 @@ public class ServiceGenerateCheck {
             } else {
                 responseDTO = new ResponseDTO("ERROR","BAD REQUEST");
                 csvWriter.write(responseDTO);
-                System.out.println("BAD REQUEST.");                     //RECORD IN FILE ---------------------------
+                System.out.println("BAD REQUEST.");
             }
         }catch (Exception e) {
             responseDTO = new ResponseDTO("ERROR","INTERNAL ERROR");

@@ -18,10 +18,10 @@ public class ServiceOrder {
 
     public static List<OrderItem> getOrderItems(List<String> pairs) {
         List<OrderItem> orderItems = new ArrayList<>();
-        // Чтение данных из CSV файла
+
         CSVReaderProductFile csvReader = new CSVReaderProductFile(path);
         List<String[]> data = csvReader.read();
-        // Создание OrderItem для каждой пары id-quantity
+
         for (String pair : pairs) {
             String[] parts = pair.split("-");
             String id = parts[0];
@@ -37,11 +37,11 @@ public class ServiceOrder {
                     OrderItem orderItem = OrderItemFactory.build(item, quantity);
                     orderItems.add(orderItem);
                     found = true;
-                    break; // Если id найден, выходим из цикла по данным
+                    break;
                 }
             }
             if (!found) {
-                System.out.println("Item with index " + id + " not found");     // Если такого продукта нет
+                System.out.println("Item with index " + id + " not found");
             }
         }
         System.out.println("\nOrder Items: ");
